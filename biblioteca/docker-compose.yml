@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  ms-biblioteca:
+    container_name: ms-biblioteca
+    build: .  # Build desde el Dockerfile en el mismo directorio
+    image: biblioteca-back  # Nombre de la imagen generada
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-biblioteca:3306/ms_biblioteca
+      - SPRING_DATASOURCE_USERNAME=archer
+      - SPRING_DATASOURCE_PASSWORD=archer
+    depends_on:
+      - db-biblioteca
+
+  db-biblioteca:
+    container_name: db-biblioteca
+    image: mysql:8.0.33
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: biblioteca
+      MYSQL_USER: archer
+      MYSQL_PASSWORD: archer
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
