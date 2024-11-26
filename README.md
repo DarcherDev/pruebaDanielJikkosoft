@@ -9,6 +9,7 @@ punto 3) diseño de backend de biblioteca
 	para este proyecto funciona con jdk 21, springboot 3.2.0 y usa de manejador de dependencias maven
 	se usar dokcer para crear solo imagen de mysql
 	el proyecto se deben compilar y ejecutar manualmente
+ 	en carpeta biblioteca se deja archivo json Biblioteca.postman_collection.json para importar collection de api para postman
 
 ## paso para levantar imagen mysql doker
 1. clonar el proyecto
